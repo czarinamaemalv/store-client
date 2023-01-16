@@ -15,7 +15,6 @@ const StatItem = ({ title, value = 0 }) => {
 }
 
 const Statistics = ({ orders }) => {
-  console.log({ orders })
   const today = moment()
   const todaysSalesValue = orders
     .filter(order => moment(order.createdAt).isSame(today, 'days'))
@@ -32,7 +31,13 @@ const Statistics = ({ orders }) => {
     .reduce((acc, obj) => acc + obj.subTotal, 0)
 
   return (
-    <Box width="100%" height="100%" border="1px solid gray" borderRadius="12px">
+    <Box
+      width="100%"
+      sx={{ position: 'relative' }}
+      height="100%"
+      border="1px solid gray"
+      borderRadius="12px"
+    >
       <Box
         display="flex"
         height="100%"
